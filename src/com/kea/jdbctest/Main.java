@@ -25,8 +25,8 @@ public class Main {
             printRes(res);
 
             //update row 1
-            System.out.println("Update row 1...");
-            res.absolute(1);//moves cursor to first row
+            System.out.println("\nUpdate row 1...");
+            res.absolute(1);//moves cursor to first row - res.first(); gør det samme
             res.updateString("vendor_name", "Abbey Office Furnishings");
             res.updateRow();
             //Abbey Office Furnishings
@@ -36,7 +36,7 @@ public class Main {
             printRes(res);
 
             //insert row
-            System.out.println("Insert row...");
+            System.out.println("\nInsert row...");
             //move to insertrow
             res.moveToInsertRow();
             //res.updateInt("vendor_id", autoincrement);
@@ -58,9 +58,10 @@ public class Main {
             printRes(res);
 
             //delete new row
-            System.out.println("Sletter sidste række...");
-            res.afterLast();
-            res.previous();
+            System.out.println("\nSletter sidste række...");
+            //res.afterLast();
+            //res.previous();
+            res.last(); //i stedet
             res.deleteRow();
             printRes(res);
 
@@ -76,7 +77,7 @@ public class Main {
 
     public static void printRes(ResultSet rs) throws SQLException{
         //Udskriv  resultatsæt
-        System.out.println("Leverandørdata\n");
+        System.out.println("\nLeverandørdata");
         //flyt cursor til start
         rs.beforeFirst();
         //kør igennem resultatsættet
